@@ -1,5 +1,6 @@
 import express from "express";
 import userRouter from "./routes/user.route.js";
+import agentRouter from "./routes/agent.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 export const app = express();
@@ -8,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
-  }),
+  })
 );
 app.use(cookieParser());
 app.use("/health-check", (req, res) => {
@@ -19,3 +20,4 @@ app.use("/health-check", (req, res) => {
 });
 
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/agent", agentRouter);
