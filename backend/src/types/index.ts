@@ -9,3 +9,4 @@ export interface IJwtUserPayload {
   name: string;
   email: string;
 }
+export type ToolExecutor = (userId: string, arg: any) => Promise<any>;
